@@ -13,7 +13,7 @@ export default class App {
     this.generateCatsThrottle = Throttle(this.generateCats.bind(this), GENERATION_INTERVAL);
 
     this.cats = [];
-
+    
     this.generateCats();
     this.loop();
   }
