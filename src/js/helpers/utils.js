@@ -35,15 +35,14 @@ export function getRandBetweenHard(min, max, small) {
  * @returns current FPS
  */
 export function FPSmeter() {
-  const times = Array(60).fill(performance.now());
+  const times = [];
 
   return function FPS() {
     const now = performance.now();
     while (times.length > 0 && times[0] <= now - 1000) {
       times.shift();
-    }
-    if (times.length < 65)
-      times.push(now);
+    }    
+    times.push(now);
     return times.length;
   }
 }

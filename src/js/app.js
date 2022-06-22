@@ -41,7 +41,7 @@ export default class App {
   }
 
   togglePause() {
-    this.paused = this.paused;
+    this.paused = !this.paused;
   }
 
   loop() {
@@ -54,7 +54,7 @@ export default class App {
   }
 
   update() {
-    if (this.FPS() < 10) {
+    if (this.FPS() < 30 || this.paused) {
       return;
     }
 
@@ -62,7 +62,7 @@ export default class App {
   }
 
   render() {
-    // if (paused) return;
+    if (this.paused) return;
     this.draw.rect(0, 0, WIDTH, HEIGHT, BG_COLOR)
 
     for (let i = 0; i < this.cats.length; i++) {

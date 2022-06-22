@@ -7,8 +7,8 @@ export class Cat {
     this.y = y;
     this.w = w;
     this.h = h;
-    this.maxSpeed = 10;
-    this.minSpeed = 5;
+    this.maxSpeed = 16;
+    this.minSpeed = 8;
     this.speed = getRandBetween(this.minSpeed, this.maxSpeed);
     this.angle = getRandBetween(0, 360) * Math.PI / 180;
     this.vx = this.speed * Math.cos(this.angle) || getRandBetween(-3, 3);
