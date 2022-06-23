@@ -1,8 +1,8 @@
-import { getRandColor, getRandBetween, getRandBetweenHard } from "../helpers/utils";
+import { getRandColor, getRandBetween } from "../helpers/utils";
 import { WIDTH, HEIGHT, MOVE_TYPES } from "../helpers/consts";
 
 export class Cat {
-  constructor(x, y, w, h) {
+  constructor(x, y, w, h, c) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -11,11 +11,11 @@ export class Cat {
     this.minSpeed = 8;
     this.speed = getRandBetween(this.minSpeed, this.maxSpeed);
     this.angle = getRandBetween(0, 360) * Math.PI / 180;
-    this.vx = this.speed * Math.cos(this.angle) || getRandBetween(-3, 3);
-    this.vy = this.speed * Math.sin(this.angle) || getRandBetween(-3, 3);
+    this.vx = this.speed * Math.cos(this.angle) * Math.random() || getRandBetween(-3, 3);
+    this.vy = this.speed * Math.sin(this.angle) * Math.random() || getRandBetween(-3, 3);
     this.ay = 0.3;
-    this.color = getRandColor();
-    this.moveType = 1;
+    this.color = c || getRandColor();
+    this.moveType = MOVE_TYPES.bounce;
   }
 
   update() {
@@ -46,6 +46,15 @@ export class Cat {
 
   render(ctx) {
     this.update();
+
+    let offset = 1;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(
+      this.x - offset,
+      this.y - offset,
+      this.w + offset * 2,
+      this.h + offset * 2
+    );
 
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.w, this.h);

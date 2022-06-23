@@ -21,14 +21,13 @@ export function getRandBetween(min, max) {
 /**
  * 
  * @param {Number} min 
- * @param {Number} max 
- * @param {Number} small 
+ * @param {Number} max
  * @returns Min or Max exactly
  */
-export function getRandBetweenHard(min, max, small) {
+export function getRandBetweenHard(min, max) {
   return Math.random() < 0.5 
-    ? getRandBetween(min, min + small) 
-    : getRandBetween(max, max - small);
+    ? min 
+    : max;
 }
 /**
  * 
