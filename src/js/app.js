@@ -53,6 +53,10 @@ export default class App {
 
   loop() {
     window.requestAnimationFrame(() => {
+      if (this.FPS() < this.FPS_TO_STOP || this.PAUSED) {
+        return;
+      }
+
       this.update();
       this.render();
   
@@ -61,17 +65,10 @@ export default class App {
   }
 
   update() {
-    if (this.FPS() < this.FPS_TO_STOP || this.PAUSED) {
-      return;
-    }
-
     this.generateCatsThrottle();
   }
 
   render() {
-    if (this.FPS() < this.FPS_TO_STOP || this.PAUSED) {
-      return;
-    }
     this.draw.rect(0, 0, WIDTH, HEIGHT, BG_COLOR)
 
     for (let i = 0; i < this.cats.length; i++) {

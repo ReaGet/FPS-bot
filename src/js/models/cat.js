@@ -15,7 +15,7 @@ export class Cat {
     this.vy = this.speed * Math.sin(this.angle) * Math.random() || getRandBetween(-3, 3);
     this.ay = 0.3;
     this.color = c || getRandColor();
-    this.moveType = MOVE_TYPES.bounce;
+    this.moveType = MOVE_TYPES.infinity;
   }
 
   update() {
