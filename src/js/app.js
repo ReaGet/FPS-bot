@@ -70,7 +70,6 @@ export default class App {
 
   render() {
     if (this.FPS() < this.FPS_TO_STOP || this.PAUSED) {
-      console.log(222)
       return;
     }
     this.draw.rect(0, 0, WIDTH, HEIGHT, BG_COLOR)
