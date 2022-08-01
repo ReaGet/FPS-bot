@@ -96,7 +96,11 @@ export default class App {
 
   loop() {
     window.requestAnimationFrame(() => {
-      if (this.FPS() < this.FPS_TO_STOP || this.PAUSED) {
+      if (this.FPS() < this.FPS_TO_STOP) {
+        return;
+      }
+      
+      if (this.PAUSED) {
         this.loop();
         return;
       }
