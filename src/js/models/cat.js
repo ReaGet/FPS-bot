@@ -13,9 +13,8 @@ export class Cat {
     this.angle = getRandBetween(0, 360) * Math.PI / 180;
     this.vx = this.speed * Math.cos(this.angle) * Math.random() || getRandBetween(-3, 3);
     this.vy = this.speed * Math.sin(this.angle) * Math.random() || getRandBetween(-3, 3);
-    this.ay = 0.3;
     this.color = c || getRandColor();
-    this.moveType = MOVE_TYPES.infinity;
+    this.moveType = MOVE_TYPES.bounce;
   }
 
   update() {

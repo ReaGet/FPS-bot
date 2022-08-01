@@ -3,6 +3,7 @@ import App from './app';
 
 const app = new App();
 
-document.body.addEventListener('mousedown', () => {
-  app.togglePause()
+document.body.addEventListener('click', (e) => {
+  if (e.target.id === 'canvas')
+    app.togglePause()
 });

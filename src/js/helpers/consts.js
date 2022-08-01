@@ -6,4 +6,4 @@ export const MOVE_TYPES = {
   bounce: 2,
 };
 export const GENERATION_INTERVAL = 0.11 * 1000; // Seconds * 1000
-export const CATS_TO_GENERATE = 300;
+export const CATS_TO_GENERATE = 500;
